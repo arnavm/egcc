@@ -28,17 +28,20 @@ RUN apt-get update && apt-get install -y \
 # Set working directory to /home
 WORKDIR /home
 
-# Add the initialization script
-ADD run.sh /home/
+# Add the setup script
+ADD setup.sh /home/
 
 # Set up everything
-RUN bash /home/run.sh
+RUN bash /home/setup.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
 
-CMD ["service", "apache2", "start"]
-CMD ["service", "mysql", "start"]
+# Add the initialization script
+ADD run.sh /home/
+
+# Run the initialization script on run
+CMD ["bash", "/home/run.sh"]
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
