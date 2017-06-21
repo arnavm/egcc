@@ -1,5 +1,5 @@
 # Fetch the code
-git clone https://github.com/arnavm/eg.git
+#git clone https://github.com/arnavm/eg.git
 cd eg
 
 # Compile cgi-bin programs

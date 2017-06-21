@@ -28,6 +28,9 @@ RUN apt-get update && apt-get install -y \
 # Set working directory to /home
 WORKDIR /home
 
+# Clone the source code
+RUN git clone https://github.com/arnavm/eg.git /home/eg
+
 # Add the setup script
 ADD setup.sh /home/
 
