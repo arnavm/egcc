@@ -28,20 +28,16 @@ RUN apt-get update && apt-get install -y \
 # Set working directory to /home
 WORKDIR /home
 
-# Clone the source code
-RUN git clone https://github.com/arnavm/eg.git /home/eg && cd /home/eg && git checkout 20afb7f
-
-# Add the setup script
-ADD setup.sh /home/
-
-# Set up everything
-RUN bash /home/setup.sh
+# Clone the source code and set up the environment
+RUN git clone https://github.com/arnavm/eg.git /home/eg && \
+	cd /home/eg && \
+	git checkout 20afb7f && \
+	git clone https://github.com/arnavm/egcc.git /home/egcc && \
+	cd /home/egcc &&
+	bash setup.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
-
-# Add the initialization script
-ADD run.sh /home/
 
 # Run the initialization script on run
 CMD ["bash", "/home/run.sh"]

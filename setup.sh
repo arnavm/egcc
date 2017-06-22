@@ -1,6 +1,6 @@
 # Fetch the code
 #git clone https://github.com/arnavm/eg.git
-cd eg
+cd /home/eg
 
 # Compile cgi-bin programs
 cd cgi-bin/jsmn-example
