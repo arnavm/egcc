@@ -33,7 +33,7 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 	cd /home/eg && \
 	git checkout 20afb7f && \
 	git clone https://github.com/arnavm/egcc.git /home/egcc && \
-	cd /home/egcc &&
+	cd /home/egcc && \
 	bash setup.sh
 
 # Make port 80 available to the world outside this container
