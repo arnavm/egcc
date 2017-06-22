@@ -29,7 +29,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /home
 
 # Clone the source code
-RUN git clone https://github.com/arnavm/eg.git /home/eg
+RUN git clone https://github.com/arnavm/eg.git /home/eg && cd /home/eg && git checkout 20afb7f
 
 # Add the setup script
 ADD setup.sh /home/
