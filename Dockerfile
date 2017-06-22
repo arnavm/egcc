@@ -40,7 +40,7 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 EXPOSE 80
 
 # Run the initialization script on run
-CMD ["bash", "/home/run.sh"]
+CMD ["bash", "/home/egcc/run.sh"]
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
