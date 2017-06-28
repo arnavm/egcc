@@ -38,6 +38,12 @@ mkdir /srv/epgg/data/data/subtleKnife/mm10/config
 mkdir /srv/epgg/data/data/subtleKnife/mm10/session
 chown www-data.www-data /srv/epgg/data/data/subtleKnife/mm10/session
 
+# Prepare for sacCer3
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3/config
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/sacCer3/session
+
 # Prepare trash directories
 mkdir /var/www/html/browser/t
 mkdir /srv/epgg/data/trash
@@ -53,6 +59,8 @@ cp hg19/tracks.json /srv/epgg/data/data/subtleKnife/hg19/config
 cp hg19/publichub.json /srv/epgg/data/data/subtleKnife/hg19/config
 cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
+cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
+cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 
 # Fetch genome data
 cd /srv/epgg/data/data/subtleKnife/hg19
@@ -71,6 +79,12 @@ wget http://egg.wustl.edu/d/mm10/refGene.gz.tbi
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz.tbi
 
+cd  /srv/epgg/data/data/subtleKnife/sacCer3
+wget http://egg.wustl.edu/d/sacCer3/refGene.gz
+wget http://egg.wustl.edu/d/sacCer3/refGene.gz.tbi
+wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz
+wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz.tbi
+
 # Initialize databases
 cd /home
 service mysql start
@@ -83,12 +97,14 @@ FLUSH PRIVILEGES;"
 cd eg/config
 mysql -u eguser -p"eguser" hg19 < sessionUtils.sql
 mysql -u eguser -p"eguser" mm10 < sessionUtils.sql
+mysql -u eguser -p"eguser" sacCer3 < sessionUtils.sql
 
 cd hg19
 mysql -u eguser -p"eguser" hg19 < makeDb.sql
-
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < makeDb.sql
+cd ../sacCer3
+mysql -u eguser -p"eguser" sacCer3 < makeDb.sql
 
 cd /home/
 git clone https://github.com/epgg/load.git
@@ -96,6 +112,8 @@ cd load/hg19
 mysql -u eguser -p"eguser" hg19 < load.sql
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < load.sql
+cd ../sacCer3
+mysql -u eguser -p"eguser" sacCer3 < load.sql
 
 service mysql stop
 
