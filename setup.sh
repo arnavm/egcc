@@ -80,8 +80,8 @@ wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz.tbi
 
 cd  /srv/epgg/data/data/subtleKnife/sacCer3
-wget http://egg.wustl.edu/d/sacCer3/refGene.gz
-wget http://egg.wustl.edu/d/sacCer3/refGene.gz.tbi
+wget http://egg.wustl.edu/d/sacCer3/sgdGene.gz
+wget http://egg.wustl.edu/d/sacCer3/sgdGene.gz.tbi
 wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz
 wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz.tbi
 
