@@ -66,20 +66,26 @@ cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 cd /srv/epgg/data/data/subtleKnife/hg19
 wget http://egg.wustl.edu/d/hg19/refGene.gz
 wget http://egg.wustl.edu/d/hg19/refGene.gz.tbi
-wget http://egg.wustl.edu/d/hg19/gencodeV17.gz
-wget http://egg.wustl.edu/d/hg19/gencodeV17.gz.tbi
 wget http://egg.wustl.edu/d/hg19/xenoRefGene.gz
 wget http://egg.wustl.edu/d/hg19/xenoRefGene.gz.tbi
+wget http://egg.wustl.edu/d/hg19/gencodeV19.gz
+wget http://egg.wustl.edu/d/hg19/gencodeV19.gz.tbi
+wget http://egg.wustl.edu/d/hg19/gencodeV17.gz
+wget http://egg.wustl.edu/d/hg19/gencodeV17.gz.tbi
 
-cd  /srv/epgg/data/data/subtleKnife/mm10
+cd /srv/epgg/data/data/subtleKnife/mm10
+wget http://egg.wustl.edu/d/mm10/gc5Base.bigWig
+wget http://egg.wustl.edu/d/mm10/cpgIsland.gz
+wget http://egg.wustl.edu/d/mm10/cpgIsland.gz.tbi
+wget http://egg.wustl.edu/d/mm10/ensGene.gz
+wget http://egg.wustl.edu/d/mm10/ensGene.gz.tbi
 wget http://egg.wustl.edu/d/mm10/refGene.gz
 wget http://egg.wustl.edu/d/mm10/refGene.gz.tbi
-#wget http://egg.wustl.edu/d/mm10/gencodeV17.gz
-#wget http://egg.wustl.edu/d/mm10/gencodeV17.gz.tbi
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz.tbi
 
-cd  /srv/epgg/data/data/subtleKnife/sacCer3
+cd /srv/epgg/data/data/subtleKnife/sacCer3
+wget http://egg.wustl.edu/d/sacCer3/gc5Base.bigWig
 wget http://egg.wustl.edu/d/sacCer3/sgdGene.gz
 wget http://egg.wustl.edu/d/sacCer3/sgdGene.gz.tbi
 wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz
