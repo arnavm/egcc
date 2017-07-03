@@ -32,6 +32,12 @@ mkdir /srv/epgg/data/data/subtleKnife/hg19/config
 mkdir /srv/epgg/data/data/subtleKnife/hg19/session
 chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg19/session
 
+# Prepare for hg38
+mkdir /srv/epgg/data/data/subtleKnife/hg38
+mkdir /srv/epgg/data/data/subtleKnife/hg38/config
+mkdir /srv/epgg/data/data/subtleKnife/hg38/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg38/session
+
 # Prepare for mm10
 mkdir /srv/epgg/data/data/subtleKnife/mm10
 mkdir /srv/epgg/data/data/subtleKnife/mm10/config
@@ -57,12 +63,15 @@ cd /home/eg/config/
 cp -r treeoflife /srv/epgg/data/data/subtleKnife/
 cp hg19/tracks.json /srv/epgg/data/data/subtleKnife/hg19/config
 cp hg19/publichub.json /srv/epgg/data/data/subtleKnife/hg19/config
+cp hg38/tracks.json /srv/epgg/data/data/subtleKnife/hg38/config
+cp hg38/publichub.json /srv/epgg/data/data/subtleKnife/hg38/config
 cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 
 # Fetch genome data
+## hg19
 cd /srv/epgg/data/data/subtleKnife/hg19
 wget http://egg.wustl.edu/d/hg19/refGene.gz
 wget http://egg.wustl.edu/d/hg19/refGene.gz.tbi
@@ -73,6 +82,16 @@ wget http://egg.wustl.edu/d/hg19/gencodeV19.gz.tbi
 wget http://egg.wustl.edu/d/hg19/gencodeV17.gz
 wget http://egg.wustl.edu/d/hg19/gencodeV17.gz.tbi
 
+## hg38
+cd /srv/epgg/data/data/subtleKnife/hg38
+wget http://egg.wustl.edu/d/hg38/refGene.gz
+wget http://egg.wustl.edu/d/hg38/refGene.gz.tbi
+wget http://egg.wustl.edu/d/hg38/xenoRefGene.gz
+wget http://egg.wustl.edu/d/hg38/xenoRefGene.gz.tbi
+wget http://egg.wustl.edu/d/hg38/gencodeV23.gz
+wget http://egg.wustl.edu/d/hg38/gencodeV23.gz.tbi
+
+## mm10
 cd /srv/epgg/data/data/subtleKnife/mm10
 wget http://egg.wustl.edu/d/mm10/gc5Base.bigWig
 wget http://egg.wustl.edu/d/mm10/cpgIsland.gz
@@ -84,6 +103,7 @@ wget http://egg.wustl.edu/d/mm10/refGene.gz.tbi
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz
 wget http://egg.wustl.edu/d/mm10/xenoRefGene.gz.tbi
 
+## sacCer3
 cd /srv/epgg/data/data/subtleKnife/sacCer3
 wget http://egg.wustl.edu/d/sacCer3/gc5Base.bigWig
 wget http://egg.wustl.edu/d/sacCer3/sgdGene.gz
@@ -103,11 +123,14 @@ FLUSH PRIVILEGES;"
 
 cd eg/config
 mysql -u eguser -p"eguser" hg19 < sessionUtils.sql
+mysql -u eguser -p"eguser" hg38 < sessionUtils.sql
 mysql -u eguser -p"eguser" mm10 < sessionUtils.sql
 mysql -u eguser -p"eguser" sacCer3 < sessionUtils.sql
 
 cd hg19
 mysql -u eguser -p"eguser" hg19 < makeDb.sql
+cd hg38
+mysql -u eguser -p"eguser" hg38 < makeDb.sql
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < makeDb.sql
 cd ../sacCer3
@@ -117,6 +140,8 @@ cd /home/
 git clone https://github.com/epgg/load.git
 cd load/hg19
 mysql -u eguser -p"eguser" hg19 < load.sql
+cd load/hg38
+mysql -u eguser -p"eguser" hg38 < load.sql
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < load.sql
 cd ../sacCer3
