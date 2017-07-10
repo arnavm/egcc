@@ -117,6 +117,7 @@ service mysql start
 mysql -u root -Bse "CREATE DATABASE hg19;
 CREATE DATABASE mm10;
 CREATE DATABASE sacCer3;
+CREATE DATABASE hg38;
 CREATE USER 'eguser'@'localhost' IDENTIFIED BY 'eguser';
 GRANT ALL ON *.* TO 'eguser'@'localhost' IDENTIFIED BY 'eguser' WITH GRANT OPTION;
 FLUSH PRIVILEGES;"
