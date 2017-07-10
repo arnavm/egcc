@@ -130,7 +130,7 @@ mysql -u eguser -p"eguser" sacCer3 < sessionUtils.sql
 
 cd hg19
 mysql -u eguser -p"eguser" hg19 < makeDb.sql
-cd hg38
+cd ../hg38
 mysql -u eguser -p"eguser" hg38 < makeDb.sql
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < makeDb.sql
@@ -141,7 +141,7 @@ cd /home/
 git clone https://github.com/epgg/load.git
 cd load/hg19
 mysql -u eguser -p"eguser" hg19 < load.sql
-cd load/hg38
+cd ../hg38
 mysql -u eguser -p"eguser" hg38 < load.sql
 cd ../mm10
 mysql -u eguser -p"eguser" mm10 < load.sql
