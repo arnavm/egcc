@@ -1,29 +1,50 @@
 # Base image: phusion/baseimage
 # Minimal (smart) Ubuntu installation
-FROM phusion/baseimage:latest
+FROM alpine:latest
 
-# Use baseimage-docker's init system.
-CMD ["/sbin/my_init"]
+# # Use baseimage-docker's init system.
+# CMD ["/sbin/my_init"]
 
-# ...put your own build instructions here...
-RUN apt-get update && apt-get install -y \
-    make \
-    gcc \
-    apache2 \
-    mysql-server \
-    libmysqlclient-dev \
-    libmysqld-dev \
-    unzip \
-    r-base \
-    libz3-dev \
-    libncurses5-dev \
-    libssl-dev \
-    libghc-curl-dev \
-    libssh2-1-dev \
-    libssh2-1 \
-    librsvg2-bin \
-    wget \
-    git
+# # ...put your own build instructions here...
+# RUN apt-get update && apt-get install -y \
+#     make \
+#     gcc \
+#     apache2 \
+#     mysql-server \
+#     libmysqlclient-dev \
+#     libmysqld-dev \
+#     unzip \
+#     r-base \
+#     libz3-dev \
+#     libncurses5-dev \
+#     libssl-dev \
+#     libghc-curl-dev \
+#     libssh2-1-dev \
+#     libssh2-1 \
+#     librsvg2-bin \
+#     wget \
+#     git
+
+RUN apk add --update \
+	make \
+	gcc \
+	libc-dev \
+	bash \
+	apache2 \
+	mysql \
+	mysql-client\
+	mariadb-dev \
+	unzip \
+	R \
+	zlib-dev \
+	ncurses-dev \
+	libressl-dev \
+	curl-dev \
+	libssh2 \
+	libssh2-dev \
+	librsvg \
+	wget \
+	git
 
 # Set working directory to /home
 WORKDIR /home
@@ -35,6 +56,7 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 
 RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
+	git checkout 8c5980e && \
 	bash setup.sh
 
 # Make port 80 available to the world outside this container
@@ -43,5 +65,5 @@ EXPOSE 80
 # Run the initialization script on run
 CMD ["bash", "/home/egcc/run.sh"]
 
-# Clean up APT when done.
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# # Clean up APT when done.
+# RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
