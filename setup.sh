@@ -25,6 +25,7 @@ cd data/
 mkdir subtleKnife
 cd subtleKnife
 mkdir seq
+mkdir /var/www/html/
 mkdir /var/www/html/browser
 
 # # Prepare for hg19
