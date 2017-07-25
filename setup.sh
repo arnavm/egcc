@@ -25,40 +25,39 @@ cd data/
 mkdir subtleKnife
 cd subtleKnife
 mkdir seq
-mkdir /var/www/
-mkdir /var/www/html/
+mkdir /var/www/html
 mkdir /var/www/html/browser
 
-# # Prepare for hg19
-# mkdir /srv/epgg/data/data/subtleKnife/hg19
-# mkdir /srv/epgg/data/data/subtleKnife/hg19/config
-# mkdir /srv/epgg/data/data/subtleKnife/hg19/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg19/session
-#
-# # Prepare for hg38
-# mkdir /srv/epgg/data/data/subtleKnife/hg38
-# mkdir /srv/epgg/data/data/subtleKnife/hg38/config
-# mkdir /srv/epgg/data/data/subtleKnife/hg38/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg38/session
-#
-# # Prepare for mm10
-# mkdir /srv/epgg/data/data/subtleKnife/mm10
-# mkdir /srv/epgg/data/data/subtleKnife/mm10/config
-# mkdir /srv/epgg/data/data/subtleKnife/mm10/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/mm10/session
-#
-# # Prepare for sacCer3
-# mkdir /srv/epgg/data/data/subtleKnife/sacCer3
-# mkdir /srv/epgg/data/data/subtleKnife/sacCer3/config
-# mkdir /srv/epgg/data/data/subtleKnife/sacCer3/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/sacCer3/session
-#
-# # Prepare trash directories
-# mkdir /var/www/html/browser/t
-# mkdir /srv/epgg/data/trash
-# chown www-data.www-data /var/www/html/browser/t /srv/epgg/data/trash
-# ln -s /srv/epgg/data/trash /usr/lib/
-#
+# Prepare for hg19
+mkdir /srv/epgg/data/data/subtleKnife/hg19
+mkdir /srv/epgg/data/data/subtleKnife/hg19/config
+mkdir /srv/epgg/data/data/subtleKnife/hg19/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg19/session
+
+# Prepare for hg38
+mkdir /srv/epgg/data/data/subtleKnife/hg38
+mkdir /srv/epgg/data/data/subtleKnife/hg38/config
+mkdir /srv/epgg/data/data/subtleKnife/hg38/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg38/session
+
+# Prepare for mm10
+mkdir /srv/epgg/data/data/subtleKnife/mm10
+mkdir /srv/epgg/data/data/subtleKnife/mm10/config
+mkdir /srv/epgg/data/data/subtleKnife/mm10/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/mm10/session
+
+# Prepare for sacCer3
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3/config
+mkdir /srv/epgg/data/data/subtleKnife/sacCer3/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/sacCer3/session
+
+# Prepare trash directories
+mkdir /var/www/html/browser/t
+mkdir /srv/epgg/data/trash
+chown www-data.www-data /var/www/html/browser/t /srv/epgg/data/trash
+ln -s /srv/epgg/data/trash /usr/lib/
+
 # # Install browser
 # cd /home/eg/browser/
 # cp -r css/ index.html js/ images/ /var/www/html/browser/
