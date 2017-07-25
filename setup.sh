@@ -11,21 +11,22 @@ cd ..
 make
 
 # Copy them to the system cgi-bin folder
+mkdir /usr/lib/cgi-bin/
 cp subtleKnife postdeposit /usr/lib/cgi-bin/
 # cp script/ucsc/ucsc2jsonhub.py /usr/lib/cgi-bin/
 cp query/querybw query/querybb /usr/lib/cgi-bin/
 
-# # Make directories
-# mkdir /srv/epgg
-# mkdir /srv/epgg/data
-# cd /srv/epgg/data
-# mkdir data
-# cd data/
-# mkdir subtleKnife
-# cd subtleKnife
-# mkdir seq
-# mkdir /var/www/html/browser
-#
+# Make directories
+mkdir /srv/epgg
+mkdir /srv/epgg/data
+cd /srv/epgg/data
+mkdir data
+cd data/
+mkdir subtleKnife
+cd subtleKnife
+mkdir seq
+mkdir /var/www/html/browser
+
 # # Prepare for hg19
 # mkdir /srv/epgg/data/data/subtleKnife/hg19
 # mkdir /srv/epgg/data/data/subtleKnife/hg19/config
