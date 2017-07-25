@@ -25,6 +25,7 @@ cd data/
 mkdir subtleKnife
 cd subtleKnife
 mkdir seq
+mkdir /var/www/
 mkdir /var/www/html/
 mkdir /var/www/html/browser
 
