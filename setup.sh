@@ -115,7 +115,7 @@ wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz.tbi
 
 # Initialize databases
 cd /home
-service mysql start
+mysqld start
 mysql -u root -Bse "CREATE DATABASE hg19;
 CREATE DATABASE mm10;
 CREATE DATABASE sacCer3;
@@ -150,7 +150,7 @@ mysql -u eguser -p"eguser" mm10 < load.sql
 cd ../sacCer3
 mysql -u eguser -p"eguser" sacCer3 < load.sql
 
-service mysql stop
+mysqld stop
 
 #Enable embedding
 echo '<Location /cgi-bin>' >> /etc/apache2/apache2.conf
