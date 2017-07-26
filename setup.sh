@@ -11,7 +11,6 @@ cd ..
 make
 
 # Copy them to the system cgi-bin folder
-mkdir /usr/lib/cgi-bin/
 cp subtleKnife postdeposit /usr/lib/cgi-bin/
 # cp script/ucsc/ucsc2jsonhub.py /usr/lib/cgi-bin/
 cp query/querybw query/querybb /usr/lib/cgi-bin/
@@ -25,37 +24,36 @@ cd data/
 mkdir subtleKnife
 cd subtleKnife
 mkdir seq
-mkdir /var/www/html
 mkdir /var/www/html/browser
 
 # Prepare for hg19
 mkdir /srv/epgg/data/data/subtleKnife/hg19
 mkdir /srv/epgg/data/data/subtleKnife/hg19/config
 mkdir /srv/epgg/data/data/subtleKnife/hg19/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg19/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg19/session
 
 # Prepare for hg38
 mkdir /srv/epgg/data/data/subtleKnife/hg38
 mkdir /srv/epgg/data/data/subtleKnife/hg38/config
 mkdir /srv/epgg/data/data/subtleKnife/hg38/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg38/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/hg38/session
 
 # Prepare for mm10
 mkdir /srv/epgg/data/data/subtleKnife/mm10
 mkdir /srv/epgg/data/data/subtleKnife/mm10/config
 mkdir /srv/epgg/data/data/subtleKnife/mm10/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/mm10/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/mm10/session
 
 # Prepare for sacCer3
 mkdir /srv/epgg/data/data/subtleKnife/sacCer3
 mkdir /srv/epgg/data/data/subtleKnife/sacCer3/config
 mkdir /srv/epgg/data/data/subtleKnife/sacCer3/session
-# chown www-data.www-data /srv/epgg/data/data/subtleKnife/sacCer3/session
+chown www-data.www-data /srv/epgg/data/data/subtleKnife/sacCer3/session
 
 # Prepare trash directories
 mkdir /var/www/html/browser/t
 mkdir /srv/epgg/data/trash
-# chown www-data.www-data /var/www/html/browser/t /srv/epgg/data/trash
+chown www-data.www-data /var/www/html/browser/t /srv/epgg/data/trash
 ln -s /srv/epgg/data/trash /usr/lib/
 
 # Install browser
@@ -115,7 +113,7 @@ wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz.tbi
 
 # Initialize databases
 cd /home
-/etc/init.d/mariadb start && rc-update add mariadb default
+service mysql start
 mysql -u root -Bse "CREATE DATABASE hg19;
 CREATE DATABASE mm10;
 CREATE DATABASE sacCer3;
@@ -150,7 +148,7 @@ mysql -u eguser -p"eguser" mm10 < load.sql
 cd ../sacCer3
 mysql -u eguser -p"eguser" sacCer3 < load.sql
 
-/etc/init.d/mariadb stop
+service mysql stop
 
 #Enable embedding
 echo '<Location /cgi-bin>' >> /etc/apache2/apache2.conf
