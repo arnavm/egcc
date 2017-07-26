@@ -41,7 +41,7 @@ RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
 	git checkout 17b6e9080d83df4a14695524c07ee25787111358
 
-# Run initialization code
+# Run initialization scripts
 RUN bash initBrowser.sh
 RUN bash initGenomes.sh
 RUN bash initDatabase.sh
