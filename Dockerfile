@@ -5,8 +5,12 @@ FROM phusion/baseimage:latest
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
 
-# ...put your own build instructions here...
-RUN apt-get update && apt-get install -y \
+# Non-interactive environment
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Build instructions here
+RUN apt-get update && \
+	apt-get install -y \
     make \
     gcc \
     apache2 \
@@ -17,36 +21,13 @@ RUN apt-get update && apt-get install -y \
     r-base \
     libz3-dev \
     libncurses5-dev \
-    # libssl-dev \
-    # libghc-curl-dev \
-    # libssh2-1-dev \
-    # libssh2-1 \
+    libssl-dev \
+    libssh2-1-dev \
+    libssh2-1 \
     librsvg2-bin \
     wget \
     git \
 	curl
-
-# RUN apk add --update \
-# 	make \
-# 	gcc \
-# 	libc-dev \
-# 	bash \
-# 	apache2 \
-# 	mysql \
-# 	mysql-client\
-# 	mariadb-dev \
-# 	unzip \
-# 	R \
-# 	zlib-dev \
-# 	ncurses-dev \
-# 	libressl-dev \
-# 	curl-dev \
-# 	libssh2 \
-# 	libssh2-dev \
-# 	librsvg \
-# 	wget \
-# 	git \
-# 	&& rm -f /var/cache/apk/*
 
 # Set working directory to /home
 WORKDIR /home
@@ -58,8 +39,12 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 
 RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
-	git checkout 17b6e9080d83df4a14695524c07ee25787111358 && \
-	bash setup.sh
+	git checkout 17b6e9080d83df4a14695524c07ee25787111358
+
+# Run initialization code
+RUN bash initBrowser.sh
+RUN bash initGenomes.sh
+RUN bash initDatabase.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
