@@ -115,7 +115,7 @@ wget http://egg.wustl.edu/d/sacCer3/xenoRefGene.gz.tbi
 
 # Initialize databases
 cd /home
-/etc/init.d/mysql start
+/etc/init.d/mariadb start && rc-update add mariadb default
 mysql -u root -Bse "CREATE DATABASE hg19;
 CREATE DATABASE mm10;
 CREATE DATABASE sacCer3;
@@ -150,7 +150,7 @@ mysql -u eguser -p"eguser" mm10 < load.sql
 cd ../sacCer3
 mysql -u eguser -p"eguser" sacCer3 < load.sql
 
-/etc/init.d/mysql stop
+/etc/init.d/mariadb stop
 
 #Enable embedding
 echo '<Location /cgi-bin>' >> /etc/apache2/apache2.conf
