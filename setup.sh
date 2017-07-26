@@ -58,19 +58,19 @@ mkdir /srv/epgg/data/trash
 # chown www-data.www-data /var/www/html/browser/t /srv/epgg/data/trash
 ln -s /srv/epgg/data/trash /usr/lib/
 
-# # Install browser
-# cd /home/eg/browser/
-# cp -r css/ index.html js/ images/ /var/www/html/browser/
-# cd /home/eg/config/
-# cp -r treeoflife /srv/epgg/data/data/subtleKnife/
-# cp hg19/tracks.json /srv/epgg/data/data/subtleKnife/hg19/config
-# cp hg19/publichub.json /srv/epgg/data/data/subtleKnife/hg19/config
-# cp hg38/tracks.json /srv/epgg/data/data/subtleKnife/hg38/config
-# cp hg38/publichub.json /srv/epgg/data/data/subtleKnife/hg38/config
-# cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
-# cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
-# cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
-# cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
+# Install browser
+cd /home/eg/browser/
+cp -r css/ index.html js/ images/ /var/www/html/browser/
+cd /home/eg/config/
+cp -r treeoflife /srv/epgg/data/data/subtleKnife/
+cp hg19/tracks.json /srv/epgg/data/data/subtleKnife/hg19/config
+cp hg19/publichub.json /srv/epgg/data/data/subtleKnife/hg19/config
+cp hg38/tracks.json /srv/epgg/data/data/subtleKnife/hg38/config
+cp hg38/publichub.json /srv/epgg/data/data/subtleKnife/hg38/config
+cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
+cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
+cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
+cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 #
 # # Fetch genome data
 # ## hg19
