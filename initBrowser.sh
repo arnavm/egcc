@@ -68,4 +68,4 @@ cp hg38/publichub.json /srv/epgg/data/data/subtleKnife/hg38/config
 cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
-cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
+# cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
