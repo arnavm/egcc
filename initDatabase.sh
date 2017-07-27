@@ -39,7 +39,7 @@ mysql -u eguser -p"eguser" mm10 < load.sql
 cd ../sacCer3
 mysql -u eguser -p"eguser" sacCer3 < load.sql
 
-service mysql stop
+# service mysql stop
 
 #Enable embedding
 echo '<Location /cgi-bin>' >> /etc/apache2/apache2.conf
