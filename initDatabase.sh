@@ -1,6 +1,6 @@
 # Initialize databases
 cd /var/lib/mysql
-rm -rf
+rm -rf *
 mysqld --initialize-insecure
 
 cd /home
