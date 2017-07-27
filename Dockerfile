@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Build instructions here
 RUN apt-get update && \
-	apt-get install -y \
+    apt-get install -y \
     make \
     gcc \
     apache2 \
@@ -21,13 +21,14 @@ RUN apt-get update && \
     r-base \
     libz3-dev \
     libncurses5-dev \
+    libghc-curl-dev \
     libssl-dev \
     libssh2-1-dev \
     libssh2-1 \
     librsvg2-bin \
     wget \
     git \
-	curl
+    curl
 
 # Set working directory to /home
 WORKDIR /home
@@ -42,9 +43,10 @@ RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	git checkout 6fe2dbc1824ac75e749a3662de709725c498b402
 
 # Run initialization scripts
-RUN cd /home/egcc && bash initBrowser.sh
-RUN cd /home/egcc && bash initGenomes.sh
-RUN cd /home/egcc && bash initDatabase.sh
+RUN cd /home/egcc && \
+    bash initBrowser.sh && \
+    bash initGenomes.sh && \
+    bash initDatabase.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
