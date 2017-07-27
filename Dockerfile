@@ -1,6 +1,6 @@
 # Base image: phusion/baseimage
 # Minimal (smart) Ubuntu installation
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:0.9.21
 
 # Use baseimage-docker's init system.
 CMD ["/sbin/my_init"]
@@ -36,17 +36,16 @@ WORKDIR /home
 # Clone the source code and set up the environment
 RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 	cd /home/eg && \
-	git checkout 031f9cd28eae751bd8e8bfbe07561b389e5507dd
-
-RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
+	git checkout 031f9cd28eae751bd8e8bfbe07561b389e5507dd && \
+    git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
-	git checkout 6fe2dbc1824ac75e749a3662de709725c498b402
+	git checkout fd3d0c5
 
 # Run initialization scripts
 RUN cd /home/egcc && \
     bash initBrowser.sh && \
-    bash initGenomes.sh && \
-    bash initDatabase.sh
+    bash initGenomes.sh
+    # bash initDatabase.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
