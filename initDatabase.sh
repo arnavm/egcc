@@ -1,4 +1,8 @@
 # Initialize databases
+cd /var/lib/mysql
+rm -rf
+mysqld --initialize-insecure
+
 cd /home
 service mysql start
 mysql -u root -Bse "CREATE DATABASE hg19;
