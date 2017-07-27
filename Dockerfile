@@ -39,12 +39,12 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 
 RUN git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
-	git checkout 17b6e9080d83df4a14695524c07ee25787111358
+	git checkout 6fe2dbc1824ac75e749a3662de709725c498b402
 
 # Run initialization scripts
-RUN bash initBrowser.sh
-RUN bash initGenomes.sh
-RUN bash initDatabase.sh
+RUN cd /home/egcc && bash initBrowser.sh
+RUN cd /home/egcc && bash initGenomes.sh
+RUN cd /home/egcc && bash initDatabase.sh
 
 # Make port 80 available to the world outside this container
 EXPOSE 80
