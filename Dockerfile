@@ -39,7 +39,7 @@ RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 	git checkout c0b87bd && \
     git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
-	git checkout 1d39c38 
+	git checkout 870f3d2 
 
 # Run initialization scripts
 RUN cd /home/egcc && \
