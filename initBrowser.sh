@@ -69,3 +69,12 @@ cp mm10/tracks.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp mm10/publichub.json /srv/epgg/data/data/subtleKnife/mm10/config
 cp sacCer3/tracks.json /srv/epgg/data/data/subtleKnife/sacCer3/config
 # cp sacCer3/publichub.json /srv/epgg/data/data/subtleKnife/sacCer3/config
+
+# Install htslib
+cd /home
+wget https://github.com/samtools/htslib/releases/download/1.7/htslib-1.7.tar.bz2
+tar -xjvf htslib-1.7.tar.bz2
+cd htslib-1.7
+make
+make install
+cd /home
