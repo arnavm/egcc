@@ -36,7 +36,7 @@ WORKDIR /home
 # Clone the source code and set up the environment
 RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 	cd /home/eg && \
-	git checkout 6f8a450b0fc48732a9f6ff44129d59c0a96510a2 && \
+	git checkout 7059e257479418e8f04a5715109aeba4ab9fe12f && \
     git clone https://github.com/arnavm/egcc.git /home/egcc && \
 	cd /home/egcc && \
 	git checkout 289c3d2c2eabd8901c2f6a19c3dd8987b27bc252
