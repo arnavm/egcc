@@ -36,22 +36,10 @@ WORKDIR /home
 # Clone the source code and set up the environment
 RUN git clone https://github.com/arnavm/eg.git /home/eg && \
 	cd /home/eg && \
-<<<<<<< HEAD
 	git checkout 3c5cbb09beb1342e084c031fb34ff3fbd7d9e47e && \
-||||||| merged common ancestors
-	git checkout 7059e257479418e8f04a5715109aeba4ab9fe12f && \
-=======
-	git checkout 637eaddd9e29f800e25a014c2774d0bd662ea3e2 && \
->>>>>>> f65c3a82c4c7a553f8e2efbeb3d90130cedc5605
     git clone https://github.com/arnavm/egcc.git /home/egcc && \
-	cd /home/egcc && \
-<<<<<<< HEAD
-	git checkout f496bf9642913745d0f8a7bc2cfc71e443e3aa86
-||||||| merged common ancestors
-	git checkout 289c3d2c2eabd8901c2f6a19c3dd8987b27bc252
-=======
-	git checkout 33c8562ab9a2ed577b4a982daee7fefdd3c2004b 
->>>>>>> f65c3a82c4c7a553f8e2efbeb3d90130cedc5605
+ 	cd /home/egcc && \
+ 	git checkout 33c8562ab9a2ed577b4a982daee7fefdd3c2004b
 
 # Run initialization scripts
 RUN cd /home/egcc && \
